@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, ReactNode } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useEffect, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface LanguageContextType {
