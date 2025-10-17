@@ -1,0 +1,629 @@
+{
+  "app": {
+    "title": "Al-Wafaa",
+    "welcome": "Welcome to Al-Wafaa"
+  },
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "arabic": "Arabic",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "services": "Export Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "mainHeading": "Premium Egyptian Bananas",
+    "subHeading": "Exporting Excellence Worldwide",
+    "description": "From the fertile lands of Egypt to your doorstep - delivering the finest quality bananas with premium export services.",
+    "cta": "Explore Our Products"
+  },
+  "eliteHero": {
+    "mainHeading": "Premium Egyptian Bananas",
+    "subHeading": "Excellence in Global Export",
+    "description": "From Egypt's fertile lands to the world's finest markets - delivering premium quality bananas with unmatched export excellence.",
+    "descriptionSuffix": "Every shipment handled with care.",
+    "cta": "Discover Our Services",
+    "established": "Est. 2024"
+  },
+  "intro": {
+    "label": "Who We Are",
+    "mainTitle": "Al-Wafaa Fresh Bananas",
+    "subtitle": "Delivering premium quality bananas from farm to global markets",
+    "yearsDesc": "Trusted excellence since 2000",
+    "heading": "Your Trusted Partner in Premium Banana Exports",
+    "paragraph1": "Al-Wafaa is a leading Egyptian banana export company, dedicated to bringing the finest quality bananas from Egypt's fertile Nile Delta to markets around the world. With years of experience in agricultural export, we have built a reputation for excellence, reliability, and unwavering commitment to quality.",
+    "paragraph2": "We work directly with local farmers, ensuring that every banana meets our strict quality standards. Our state-of-the-art facilities and efficient logistics network guarantee that your products arrive fresh, on time, and in perfect condition - every single time.",
+    "yearsExperience": "Years Experience",
+    "feature1": {
+      "title": "Premium Quality",
+      "desc": "Hand-selected bananas meeting international standards"
+    },
+    "feature2": {
+      "title": "Fast Logistics",
+      "desc": "Efficient supply chain ensuring timely delivery"
+    },
+    "feature3": {
+      "title": "Global Reach",
+      "desc": "Delivering to markets worldwide with reliability"
+    },
+    "feature4": {
+      "title": "Excellence",
+      "desc": "Unwavering commitment to quality and service"
+    }
+  },
+  "stats": {
+    "subtitle": "Our Impact",
+    "title": "Numbers That Speak",
+    "description": "Decades of excellence delivering premium bananas worldwide",
+    "years": "Years of Excellence",
+    "yearsDesc": "Trusted excellence since 2000",
+    "countries": "Countries Served",
+    "countriesDesc": "Worldwide distribution network",
+    "tons": "Tons Exported",
+    "tonsDesc": "Annual premium banana exports",
+    "footnote": "Trusted by importers and distributors across the globe"
+  },
+  "products": {
+    "subtitle": "Our Selection",
+    "title": "Premium Banana Products",
+    "description": "Hand-selected varieties meeting the highest international standards",
+    "premium": {
+      "name": "Premium Export Grade",
+      "category": "Grade A",
+      "description": "Top-tier bananas selected for size, color, and ripeness perfection"
+    },
+    "organic": {
+      "name": "Certified Organic",
+      "category": "Organic",
+      "description": "Sustainably grown without synthetic pesticides or fertilizers"
+    },
+    "bulk": {
+      "name": "Bulk Export",
+      "category": "Commercial",
+      "description": "Large-scale orders for distributors and retail chains"
+    },
+    "cta": "Learn More"
+  },
+  "why": {
+    "title": "Why Choose Al-Wafaa",
+    "description": "Three pillars of excellence that set us apart in the global banana export industry",
+    "quality": {
+      "title": "Premium Quality",
+      "short": "Every banana meets rigorous international standards",
+      "full": "Our quality control process ensures only the finest bananas reach your market",
+      "feature1": "Hand-selected at optimal ripeness",
+      "feature2": "Multi-stage quality inspection",
+      "feature3": "International certification compliance"
+    },
+    "freshness": {
+      "title": "Guaranteed Freshness",
+      "short": "Farm-to-port in optimal cold-chain conditions",
+      "full": "Advanced logistics ensure your bananas arrive in perfect condition",
+      "feature1": "Temperature-controlled storage",
+      "feature2": "Rapid processing and packaging",
+      "feature3": "Real-time shipment tracking"
+    },
+    "reliability": {
+      "title": "Trusted Reliability",
+      "short": "25+ years of consistent excellence",
+      "full": "We've built lasting partnerships through dependable service",
+      "feature1": "On-time delivery guarantee",
+      "feature2": "Transparent communication",
+      "feature3": "Dedicated account management"
+    }
+  },
+  "cta": {
+    "title": "Let's Start a Conversation",
+    "subtitle": "Get in touch for quotes, inquiries, or to learn more about our export services",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Mohamed Hassan",
+      "email": "Email Address",
+      "emailPlaceholder": "mohamed@tradingco.com",
+      "company": "Company",
+      "companyPlaceholder": "Cairo International Trading",
+      "country": "Country",
+      "countryPlaceholder": "Saudi Arabia",
+      "message": "Message",
+      "messagePlaceholder": "I'm interested in importing premium Egyptian bananas to...",
+      "submit": "Send Message",
+      "success": "Message sent successfully! We'll respond within 24 hours."
+    },
+    "contact": {
+      "email": "Email Us",
+      "phone": "Call Us",
+      "phoneHours": "Available 24/7",
+      "location": "Visit Us",
+      "locationNote": "Headquarters & Export Facility",
+      "responseTime": "Average Response Time"
+    }
+  },
+  "footer": {
+    "tagline": "Premium fresh bananas exported worldwide with uncompromising quality since 2000",
+    "about": {
+      "title": "About",
+      "story": "Our Story",
+      "team": "Our Team",
+      "certifications": "Certifications",
+      "sustainability": "Sustainability"
+    },
+    "products": {
+      "title": "Products",
+      "premium": "Premium Grade",
+      "organic": "Organic Bananas",
+      "bulk": "Bulk Orders",
+      "custom": "Custom Solutions"
+    },
+    "services": {
+      "title": "Services",
+      "export": "Export Services",
+      "logistics": "Logistics",
+      "packaging": "Packaging",
+      "quality": "Quality Assurance"
+    },
+    "support": {
+      "title": "Support",
+      "contact": "Contact Us",
+      "faq": "FAQ",
+      "shipping": "Shipping Info",
+      "terms": "Terms & Conditions"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Get the latest news, updates, and special offers delivered to your inbox",
+      "placeholder": "Enter your email",
+      "button": "Subscribe"
+    },
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
+  },
+  "bananaProducts": {
+    "label": "Product Portfolio",
+    "title": "Fresh Bananas",
+    "description": "Premium quality bananas sourced from the finest farms, available in multiple grades to meet your specific requirements",
+    "premium": {
+      "name": "Premium Export Grade",
+      "category": "Grade A",
+      "description": "Handpicked premium quality bananas meeting the highest international export standards.",
+      "specifications": {
+        "size": "18-22 cm",
+        "weight": "150-200g per unit",
+        "packaging": "13kg cartons",
+        "shelfLife": "14-21 days",
+        "color": "Green to Yellow"
+      },
+      "features": [
+        "Perfect ripeness control",
+        "Uniform size",
+        "Minimal blemishes",
+        "Extended shelf life"
+      ]
+    },
+    "organic": {
+      "name": "Organic Premium",
+      "category": "Certified Organic",
+      "description": "Certified organic bananas cultivated without synthetic pesticides or fertilizers.",
+      "specifications": {
+        "size": "17-21 cm",
+        "weight": "140-190g per unit",
+        "packaging": "13kg cartons",
+        "shelfLife": "12-18 days",
+        "color": "Green to Yellow"
+      },
+      "features": [
+        "100% organic certified",
+        "Sustainable farming",
+        "Chemical-free",
+        "Premium taste"
+      ]
+    },
+    "standard": {
+      "name": "Standard Export",
+      "category": "Grade B",
+      "description": "High-quality bananas ideal for bulk orders and processing applications.",
+      "specifications": {
+        "size": "15-20 cm",
+        "weight": "130-180g per unit",
+        "packaging": "18kg cartons",
+        "shelfLife": "10-16 days",
+        "color": "Green to Yellow"
+      },
+      "features": [
+        "Cost-effective",
+        "Reliable quality",
+        "Bulk availability",
+        "Processing grade"
+      ]
+    },
+    "specsLabels": {
+      "size": "Size",
+      "weight": "Weight",
+      "packaging": "Packaging",
+      "shelfLife": "Shelf Life",
+      "color": "Color"
+    },
+    "specificationsTitle": "Specifications",
+    "keyFeaturesTitle": "Key Features"
+  },
+  "certifications": {
+    "label": "Trust & Compliance",
+    "title": "Certifications & Standards",
+    "description": "Our commitment to excellence is validated by internationally recognized certifications and rigorous quality standards",
+    "certs": {
+      "iso9001": {
+        "name": "ISO 9001:2015",
+        "category": "Quality Management",
+        "description": "International standard for quality management systems ensuring consistent quality and customer satisfaction."
+      },
+      "iso22000": {
+        "name": "ISO 22000",
+        "category": "Food Safety",
+        "description": "Global food safety management standard covering the entire food chain from farm to fork."
+      },
+      "haccp": {
+        "name": "HACCP",
+        "category": "Hazard Analysis",
+        "description": "Systematic preventive approach to food safety identifying and controlling biological, chemical, and physical hazards."
+      },
+      "globalGap": {
+        "name": "GlobalGAP",
+        "category": "Agricultural Practices",
+        "description": "Leading farm assurance program translating consumer requirements into good agricultural practices worldwide."
+      },
+      "organic": {
+        "name": "Organic Certification",
+        "category": "Organic Standards",
+        "description": "Certified organic production methods ensuring products meet strict organic standards without synthetic inputs."
+      },
+      "fairTrade": {
+        "name": "Fair Trade",
+        "category": "Ethical Sourcing",
+        "description": "Commitment to fair prices, decent working conditions, and sustainable farming practices for producers."
+      }
+    },
+    "qualityStandards": {
+      "label": "Quality Assurance",
+      "title": "Our Quality Standards",
+      "description": "Beyond certifications, we implement comprehensive quality control measures at every stage of our operations to ensure excellence in every shipment.",
+      "standards": [
+        "Traceability from farm to export",
+        "Regular third-party audits",
+        "Continuous quality monitoring",
+        "Staff training and development",
+        "Cold chain management",
+        "Laboratory testing protocols"
+      ]
+    },
+    "stats": {
+      "compliance": {
+        "value": "100%",
+        "label": "Compliance Rate"
+      },
+      "audits": {
+        "value": "50+",
+        "label": "Annual Audits"
+      },
+      "monitoring": {
+        "value": "24/7",
+        "label": "Quality Monitoring"
+      }
+    }
+  },
+  "companyStory": {
+    "label": "Our Journey",
+    "title": "Our Story",
+    "mainHeading": "Cultivating Excellence Since Day One",
+    "paragraph1": "Our journey began with a simple yet powerful vision: to deliver the world's finest fresh produce while maintaining the highest standards of quality and sustainability. What started as a family-owned operation has grown into a trusted global partner.",
+    "paragraph2": "Through decades of dedication, we've built lasting relationships with farmers, suppliers, and customers across continents. Every piece of fruit that leaves our facilities carries with it our commitment to excellence and our passion for what we do.",
+    "paragraph3": "Today, we stand as industry leaders not just in volume, but in innovation, sustainability, and the unwavering quality that has become our hallmark.",
+    "milestones": [
+      {"year": "2000", "label": "Founded"},
+      {"year": "2010", "label": "Global Expansion"},
+      {"year": "2020", "label": "Sustainability Leader"},
+      {"year": "2025", "label": "Innovation Pioneer"}
+    ],
+    "mission": {
+      "label": "Our Mission",
+      "title": "Delivering Nature's Best to Every Corner of the World",
+      "description": "We are committed to bridging the gap between the world's finest growers and discerning customers globally. Our mission extends beyond logistics—we're cultivating a sustainable future where quality, integrity, and environmental responsibility are never compromised.",
+      "points": [
+        "Uncompromising quality at every stage",
+        "Sustainable practices from farm to table",
+        "Building lasting partnerships worldwide",
+        "Innovation in preservation and logistics"
+      ]
+    },
+    "vision": {
+      "label": "Our Vision",
+      "description": "To be recognized globally as the most trusted name in fresh produce exports—where quality meets sustainability, and every harvest tells a story of excellence."
+    }
+  },
+  "companyValues": {
+    "label": "What Drives Us",
+    "title": "Our Core Values",
+    "description": "The principles that guide every decision we make and define who we are as a company",
+    "values": {
+      "quality": {
+        "title": "Quality Excellence",
+        "description": "Every product meets the highest international standards through rigorous selection and quality control processes.",
+        "details": [
+          "Multi-stage quality inspection",
+          "Temperature-controlled logistics",
+          "Expert grading and sorting",
+          "Freshness guarantee"
+        ]
+      },
+      "sustainability": {
+        "title": "Sustainability",
+        "description": "Committed to environmental stewardship and sustainable practices that protect our planet for future generations.",
+        "details": [
+          "Eco-friendly packaging solutions",
+          "Carbon-neutral shipping options",
+          "Supporting organic farming",
+          "Waste reduction programs"
+        ]
+      },
+      "customerSatisfaction": {
+        "title": "Customer Satisfaction",
+        "description": "Building lasting relationships through exceptional service, reliability, and unwavering commitment to our clients.",
+        "details": [
+          "24/7 customer support",
+          "Flexible delivery schedules",
+          "Transparent communication",
+          "Long-term partnerships"
+        ]
+      }
+    },
+    "quote": "Our values aren't just words on a page—they're the foundation of every relationship we build and every promise we keep."
+  },
+  "storageHandling": {
+    "label": "Best Practices",
+    "title": "Storage & Handling",
+    "description": "Comprehensive guidelines to ensure optimal freshness and quality from arrival to final destination",
+    "guidelines": {
+      "temperature": {
+        "title": "Temperature Control",
+        "description": "Maintain optimal temperature throughout storage and transport",
+        "items": [
+          "Storage: 13-14°C (55-57°F)",
+          "Transit: 13.5-14.5°C (56-58°F)",
+          "Never below 12°C to prevent chilling injury",
+          "Avoid temperature fluctuations"
+        ]
+      },
+      "humidity": {
+        "title": "Humidity Management",
+        "description": "Proper humidity levels prevent moisture loss and premature ripening",
+        "items": [
+          "Relative humidity: 90-95%",
+          "Adequate ventilation required",
+          "Monitor condensation levels",
+          "Use moisture-absorbent materials"
+        ]
+      },
+      "handling": {
+        "title": "Handling Procedures",
+        "description": "Careful handling ensures product integrity and extends shelf life",
+        "items": [
+          "Handle with care to avoid bruising",
+          "Use proper lifting techniques",
+          "Avoid stacking beyond safe limits",
+          "Inspect regularly for damage"
+        ]
+      }
+    },
+    "bestPractices": {
+      "title": "Best Practices by Phase",
+      "subtitle": "Step-by-step guidelines for each stage of the supply chain",
+      "phases": {
+        "receiving": {
+          "title": "Receiving",
+          "practices": [
+            "Immediate temperature check",
+            "Visual quality inspection",
+            "Document condition",
+            "Transfer to cold storage quickly"
+          ]
+        },
+        "storage": {
+          "title": "Storage",
+          "practices": [
+            "FIFO inventory rotation",
+            "Regular temperature monitoring",
+            "Adequate air circulation",
+            "Separate from ethylene producers"
+          ]
+        },
+        "distribution": {
+          "title": "Distribution",
+          "practices": [
+            "Pre-cool vehicles",
+            "Minimize handling time",
+            "Maintain cold chain",
+            "Use appropriate packaging"
+          ]
+        }
+      }
+    },
+    "warnings": {
+      "title": "Important Considerations",
+      "points": [
+        "Never store with ethylene-producing fruits (apples, avocados)",
+        "Avoid direct sunlight or heat sources",
+        "Do not refrigerate below 12°C",
+        "Keep away from strong odors",
+        "Ensure proper ventilation at all times",
+        "Monitor ripening stages daily"
+      ],
+      "note": "Note:",
+      "noteText": "These guidelines are based on industry best practices and international standards. Specific requirements may vary depending on destination market regulations and customer preferences. Always consult relevant documentation and local authorities."
+    }
+  },
+  "contactPage": {
+    "title": "Get In Touch",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "+20 123 456 7890",
+      "countryLabel": "Country",
+      "countryPlaceholder": "Your country",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us about your requirements...",
+      "submitButton": "Send Message"
+    },
+    "businessInfo": {
+      "title": "Business Information",
+      "addressLabel": "Address",
+      "addressValue": "Cairo, Egypt",
+      "emailLabel": "Email",
+      "emailValue": "info@alwafaaa.com",
+      "phoneLabel": "Phone",
+      "phoneValue": "0109 904 2527"
+    },
+    "socialMedia": {
+      "title": "Social Media",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "servicesPage": {
+    "destinations": {
+      "title": "Export Destinations",
+      "europe": {
+        "title": "Europe",
+        "countries": "Germany, France, Netherlands, UK"
+      },
+      "middleEast": {
+        "title": "Middle East",
+        "countries": "UAE, Saudi Arabia, Qatar"
+      },
+      "africa": {
+        "title": "Africa",
+        "countries": "South Africa, Morocco, Algeria"
+      }
+    },
+    "logistics": {
+      "title": "Logistics & Shipping",
+      "coldChain": {
+        "title": "Cold Chain Management",
+        "description": "Temperature-controlled transport"
+      },
+      "certifications": {
+        "title": "Export Certifications",
+        "description": "ISO, HACCP, Organic certified"
+      },
+      "packaging": {
+        "title": "Packaging Standards",
+        "description": "Custom packaging solutions"
+      }
+    }
+  },
+  "contactForm": {
+    "label": "Get In Touch",
+    "title": "Contact Us",
+    "description": "Ready to partner with us? Get in touch and let's discuss how we can serve your fresh produce needs",
+    "form": {
+      "fullName": "Full Name *",
+      "fullNamePlaceholder": "John Doe",
+      "email": "Email Address *",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 234 567 8900",
+      "country": "Country",
+      "countryPlaceholder": "United States",
+      "message": "Message *",
+      "messagePlaceholder": "Tell us about your requirements...",
+      "submitButton": "Send Message"
+    },
+    "contactInfo": {
+      "title": "Contact Information",
+      "address": {
+        "label": "Address",
+        "value": "Cairo, Egypt"
+      },
+      "email": {
+        "label": "Email",
+        "value": "info@alwafaa-export.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+20 2 1234 5678"
+      },
+      "businessHours": {
+        "label": "Business Hours",
+        "value": "Sun - Thu: 9:00 AM - 6:00 PM"
+      }
+    },
+    "map": {
+      "placeholder": "Google Maps Embed",
+      "location": "Cairo, Egypt"
+    },
+    "social": {
+      "title": "Follow Us",
+      "linkedin": "LinkedIn",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter"
+    },
+    "responseNote": "We typically respond within 24 hours during business days"
+  },
+  "exportDestinations": {
+    "label": "Global Reach",
+    "title": "Export Destinations",
+    "description": "Delivering premium fresh produce to major markets across the globe with reliable logistics and quality assurance",
+    "stats": {
+      "countries": {
+        "value": "40+",
+        "label": "Countries Served"
+      },
+      "continents": {
+        "value": "5",
+        "label": "Continents"
+      },
+      "volume": {
+        "value": "10,000+",
+        "label": "Tons Annually"
+      }
+    },
+    "mapPlaceholder": "Interactive map visualization",
+    "regions": {
+      "middleEast": {
+        "name": "Middle East",
+        "countries": ["Saudi Arabia", "UAE", "Kuwait", "Qatar", "Jordan"],
+        "volume": "40%"
+      },
+      "europe": {
+        "name": "Europe",
+        "countries": ["Germany", "UK", "France", "Italy", "Netherlands"],
+        "volume": "35%"
+      },
+      "asia": {
+        "name": "Asia",
+        "countries": ["China", "Japan", "South Korea", "Singapore", "Malaysia"],
+        "volume": "15%"
+      },
+      "northAmerica": {
+        "name": "North America",
+        "countries": ["USA", "Canada"],
+        "volume": "10%"
+      }
+    }
+  }
+}
+
