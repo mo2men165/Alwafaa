@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Magnet from './reactBits/Magnet';
+import GradientText from './reactBits/GradientText';
 import { useTranslation } from 'react-i18next';
 
 export default function WhyChooseUs() {
@@ -80,9 +81,13 @@ export default function WhyChooseUs() {
             <div className="h-[1px] w-16 mx-auto mt-3 bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent"></div>
           </motion.div>
 
-          <h2 className="text-5xl md:text-7xl font-light text-white mb-8 tracking-tight">
+          <GradientText
+            colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
+            animationSpeed={6}
+            className="text-4xl md:text-7xl leading-relaxed font-light tracking-tight mb-8 px-4"
+          >
             {t('why.title')}
-          </h2>
+          </GradientText>
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -102,9 +107,10 @@ export default function WhyChooseUs() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.6 + index * 0.15 }}
+              className="w-full"
             >
-              <Magnet padding={60} magnetStrength={3}>
-                <div className="relative h-full bg-slate-900/40 backdrop-blur-xl rounded-2xl p-8 transition-all duration-500 hover:bg-slate-900/60 overflow-hidden border border-white/5 hover:border-white/10">
+              <Magnet padding={60} magnetStrength={3} wrapperClassName="w-full block">
+                <div className="relative h-full bg-slate-900/40 backdrop-blur-xl rounded-2xl p-8 transition-all duration-500 hover:bg-slate-900/60 overflow-hidden border border-white/5 hover:border-white/10 w-full">
                   {/* Top Accent Line */}
                   <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r ${reason.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
 

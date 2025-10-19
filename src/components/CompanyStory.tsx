@@ -46,7 +46,7 @@ export default function CompanyStory() {
           <GradientText
             colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
             animationSpeed={6}
-            className="text-5xl leading-relaxed md:text-7xl font-light tracking-tight mb-8"
+            className="text-4xl leading-relaxed md:text-7xl font-light tracking-tight mb-8 px-4"
           >
             {t('companyStory.title')}
           </GradientText>
@@ -100,15 +100,83 @@ export default function CompanyStory() {
                 ))}
               </div>
             </div>
+
+            {/* Vision Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
+              <div className="relative bg-slate-900 rounded-2xl p-10 overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-emerald-500 via-blue-500 to-amber-500"></div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-amber-500"></div>
+                    <h4 className="text-xs font-medium uppercase tracking-[0.3em] text-slate-400">
+                      {t('companyStory.vision.label')}
+                    </h4>
+                  </div>
+
+                  <p className="text-base text-white font-light leading-relaxed">
+                    {t('companyStory.vision.description')}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Right Column - Mission */}
+          {/* Right Column - Logo Feature */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="space-y-8"
           >
+            {/* Centered Logo Display */}
+            <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-16 overflow-hidden">
+              {/* Gradient Border */}
+              <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-r from-emerald-500 via-blue-500 to-amber-500">
+                <div className="absolute inset-[1px] rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+              </div>
+
+              {/* Radial Glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-blue-500/10 to-amber-500/10 blur-3xl"></div>
+
+              {/* Logo Container */}
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={inView ? { scale: 1, opacity: 1 } : {}}
+                transition={{ duration: 1, delay: 0.7 }}
+                className="relative z-10 flex items-center justify-center"
+              >
+                <div className="relative">
+                  {/* Animated Rings */}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 -m-8"
+                  >
+                    <div className="w-full h-full border border-emerald-500/20 rounded-full"></div>
+                  </motion.div>
+                  <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 -m-12"
+                  >
+                    <div className="w-full h-full border border-blue-500/20 rounded-full"></div>
+                  </motion.div>
+
+                  {/* Logo */}
+                  <img 
+                    src="/logo-nobg.png" 
+                    alt="Company Logo" 
+                    className="relative w-48 h-48 object-contain drop-shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
             {/* Mission Card */}
             <div className="relative bg-white rounded-2xl p-10 border border-slate-200 shadow-lg overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-emerald-500 via-blue-500 to-amber-500"></div>
@@ -137,24 +205,6 @@ export default function CompanyStory() {
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-
-            {/* Vision Card */}
-            <div className="relative bg-slate-900 rounded-2xl p-10 overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-emerald-500 via-blue-500 to-amber-500"></div>
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-amber-500"></div>
-                  <h4 className="text-xs font-medium uppercase tracking-[0.3em] text-slate-400">
-                    {t('companyStory.vision.label')}
-                  </h4>
-                </div>
-
-                <p className="text-base text-white font-light leading-relaxed">
-                  {t('companyStory.vision.description')}
-                </p>
               </div>
             </div>
           </motion.div>

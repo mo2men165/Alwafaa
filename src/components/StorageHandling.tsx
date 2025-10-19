@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import GradientText from './reactBits/GradientText';
 import Magnet from './reactBits/Magnet';
 import { useTranslation } from 'react-i18next';
+import { PackageCheck, Warehouse, Truck } from 'lucide-react';
 
 export default function StorageHandling() {
   const { t } = useTranslation();
@@ -17,36 +18,42 @@ export default function StorageHandling() {
       title: t('storageHandling.guidelines.temperature.title'),
       description: t('storageHandling.guidelines.temperature.description'),
       guidelines: t('storageHandling.guidelines.temperature.items', { returnObjects: true }) as string[],
-      gradient: 'from-blue-500 to-indigo-600'
+      gradient: 'from-blue-500 to-indigo-600',
+      accentColor: '#3b82f6'
     },
     {
       id: 2,
       title: t('storageHandling.guidelines.humidity.title'),
       description: t('storageHandling.guidelines.humidity.description'),
       guidelines: t('storageHandling.guidelines.humidity.items', { returnObjects: true }) as string[],
-      gradient: 'from-emerald-500 to-teal-600'
+      gradient: 'from-emerald-500 to-teal-600',
+      accentColor: '#10b981'
     },
     {
       id: 3,
       title: t('storageHandling.guidelines.handling.title'),
       description: t('storageHandling.guidelines.handling.description'),
       guidelines: t('storageHandling.guidelines.handling.items', { returnObjects: true }) as string[],
-      gradient: 'from-amber-500 to-orange-600'
+      gradient: 'from-amber-500 to-orange-600',
+      accentColor: '#f59e0b'
     }
   ];
 
   const bestPractices = [
     {
       phase: t('storageHandling.bestPractices.phases.receiving.title'),
-      practices: t('storageHandling.bestPractices.phases.receiving.practices', { returnObjects: true }) as string[]
+      practices: t('storageHandling.bestPractices.phases.receiving.practices', { returnObjects: true }) as string[],
+      icon: PackageCheck
     },
     {
       phase: t('storageHandling.bestPractices.phases.storage.title'),
-      practices: t('storageHandling.bestPractices.phases.storage.practices', { returnObjects: true }) as string[]
+      practices: t('storageHandling.bestPractices.phases.storage.practices', { returnObjects: true }) as string[],
+      icon: Warehouse
     },
     {
       phase: t('storageHandling.bestPractices.phases.distribution.title'),
-      practices: t('storageHandling.bestPractices.phases.distribution.practices', { returnObjects: true }) as string[]
+      practices: t('storageHandling.bestPractices.phases.distribution.practices', { returnObjects: true }) as string[],
+      icon: Truck
     }
   ];
 
@@ -86,7 +93,7 @@ export default function StorageHandling() {
           <GradientText
             colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
             animationSpeed={6}
-            className="text-5xl leading-relaxed md:text-7xl font-light tracking-tight mb-8"
+            className="text-4xl leading-relaxed md:text-7xl font-light tracking-tight mb-8 px-4"
           >
             {t('storageHandling.title')}
           </GradientText>
@@ -109,20 +116,26 @@ export default function StorageHandling() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.6 + index * 0.15 }}
+              className="w-full"
             >
-              <Magnet padding={60} magnetStrength={3}>
-                <div className="relative h-full bg-white rounded-2xl p-8 border border-slate-200 hover:border-slate-300 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group">
+              <Magnet padding={60} magnetStrength={3} wrapperClassName="w-full block">
+                <div className="relative h-full bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group w-full" style={{ borderColor: `${guideline.accentColor}20` }}>
                   {/* Top Accent Line */}
-                  <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r ${guideline.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${guideline.gradient} transition-opacity duration-500`}></div>
 
                   {/* Subtle Glow */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${guideline.gradient} opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500`}></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${guideline.gradient} opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500`}></div>
 
                   {/* Content */}
                   <div className="relative space-y-6">
                     {/* Icon */}
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${guideline.gradient} opacity-10 flex items-center justify-center`}>
-                      <div className="w-2 h-2 rounded-full bg-gradient-to-r ${guideline.gradient}"></div>
+                    <div className="relative w-12 h-12 rounded-xl flex items-center justify-center">
+                      {/* Background layer with opacity */}
+                      <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${guideline.gradient} opacity-20`}></div>
+                      {/* Banana Icon at full opacity */}
+                      <span className="relative z-10 text-2xl group-hover:rotate-[360deg] transition-transform duration-700 ease-in-out inline-block">
+                        🍌
+                      </span>
                     </div>
 
                     {/* Title */}
@@ -139,7 +152,7 @@ export default function StorageHandling() {
                     <div className="space-y-3 pt-4 border-t border-slate-100">
                       {guideline.guidelines.map((item, idx) => (
                         <div key={idx} className="flex items-start gap-3">
-                          <span className={`w-1 h-1 rounded-full bg-gradient-to-r ${guideline.gradient} mt-2 flex-shrink-0`}></span>
+                          <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${guideline.gradient} mt-2 flex-shrink-0`}></span>
                           <span className="text-xs text-slate-600 font-light leading-relaxed">
                             {item}
                           </span>
@@ -149,7 +162,7 @@ export default function StorageHandling() {
                   </div>
 
                   {/* Bottom Accent */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r ${guideline.gradient} opacity-50`}></div>
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${guideline.gradient}`}></div>
                 </div>
               </Magnet>
             </motion.div>
@@ -169,30 +182,33 @@ export default function StorageHandling() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {bestPractices.map((practice, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.2 + idx * 0.15 }}
-                className="bg-slate-50 rounded-2xl p-6 border border-slate-200"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-blue-500 opacity-10 flex items-center justify-center">
-                    <span className="text-sm font-light text-slate-700">{idx + 1}</span>
-                  </div>
-                  <h4 className="text-lg font-light text-slate-900">{practice.phase}</h4>
-                </div>
-                <div className="space-y-2">
-                  {practice.practices.map((item, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <span className="w-1 h-1 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></span>
-                      <span className="text-xs text-slate-600 font-light">{item}</span>
+            {bestPractices.map((practice, idx) => {
+              const Icon = practice.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 1.2 + idx * 0.15 }}
+                  className="bg-slate-50 rounded-2xl p-6 border border-slate-200"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-blue-500 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-white" />
                     </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                    <h4 className="text-lg font-light text-slate-900">{practice.phase}</h4>
+                  </div>
+                  <div className="space-y-2">
+                    {practice.practices.map((item, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <span className="w-1 h-1 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></span>
+                        <span className="text-xs text-slate-600 font-light">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
 

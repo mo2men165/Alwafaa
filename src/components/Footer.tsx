@@ -3,6 +3,7 @@ import Particles from './reactBits/Particles';
 import Magnet from './reactBits/Magnet';
 import { useTranslation } from 'react-i18next';
 import Waves from './reactBits/Waves';
+import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -10,35 +11,27 @@ export default function Footer() {
   const footerLinks = {
     about: [
       { label: t('footer.about.story'), href: '/about' },
-      { label: t('footer.about.team'), href: '/team' },
-      { label: t('footer.about.certifications'), href: '/certifications' },
-      { label: t('footer.about.sustainability'), href: '/sustainability' }
+      { label: t('footer.about.certifications'), href: '/about' },
     ],
     products: [
-      { label: t('footer.products.premium'), href: '/products/premium' },
-      { label: t('footer.products.organic'), href: '/products/organic' },
-      { label: t('footer.products.bulk'), href: '/products/bulk' },
-      { label: t('footer.products.custom'), href: '/products/custom' }
+      { label: t('footer.products.premium'), href: '/products' },
+      { label: t('footer.products.organic'), href: '/products' },
+      { label: t('footer.products.bulk'), href: '/products' },
+      { label: t('footer.products.custom'), href: '/products' }
     ],
     services: [
-      { label: t('footer.services.export'), href: '/services/export' },
-      { label: t('footer.services.logistics'), href: '/services/logistics' },
-      { label: t('footer.services.packaging'), href: '/services/packaging' },
-      { label: t('footer.services.quality'), href: '/services/quality' }
-    ],
-    support: [
-      { label: t('footer.support.contact'), href: '/contact' },
-      { label: t('footer.support.faq'), href: '/faq' },
-      { label: t('footer.support.shipping'), href: '/shipping' },
-      { label: t('footer.support.terms'), href: '/terms' }
+      { label: t('footer.services.export'), href: '/services' },
+      { label: t('footer.services.logistics'), href: '/services' },
+      { label: t('footer.services.packaging'), href: '/services' },
+      { label: t('footer.services.quality'), href: '/services' }
     ]
   };
 
   const socialLinks = [
-    { icon: 'f', label: 'Facebook', href: '#' },
-    { icon: '𝕏', label: 'Twitter', href: '#' },
-    { icon: 'in', label: 'LinkedIn', href: '#' },
-    { icon: '📷', label: 'Instagram', href: '#' }
+    { icon: Facebook, label: 'Facebook', href: '#' },
+    { icon: Twitter, label: 'Twitter', href: '#' },
+    { icon: Linkedin, label: 'LinkedIn', href: '#' },
+    { icon: Instagram, label: 'Instagram', href: '#' }
   ];
 
   return (
@@ -72,7 +65,7 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-6 pt-16 pb-12">
           {/* Top Section - Logo + Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
             {/* Brand Column */}
             <div className="lg:col-span-1">
               <motion.div
@@ -96,17 +89,20 @@ export default function Footer() {
 
                 {/* Social Links */}
                 <div className="flex gap-3">
-                  {socialLinks.map((social, idx) => (
-                    <Magnet key={idx} padding={30} magnetStrength={6}>
-                      <a
-                        href={social.href}
-                        aria-label={social.label}
-                        className="w-9 h-9 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-green-500/50 transition-all duration-300"
-                      >
-                        <span className="text-sm font-bold">{social.icon}</span>
-                      </a>
-                    </Magnet>
-                  ))}
+                  {socialLinks.map((social, idx) => {
+                    const IconComponent = social.icon;
+                    return (
+                      <Magnet key={idx} padding={30} magnetStrength={6}>
+                        <a
+                          href={social.href}
+                          aria-label={social.label}
+                          className="w-9 h-9 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-green-500/50 transition-all duration-300"
+                        >
+                          <IconComponent size={18} />
+                        </a>
+                      </Magnet>
+                    );
+                  })}
                 </div>
               </motion.div>
             </div>
@@ -183,35 +179,24 @@ export default function Footer() {
               </ul>
             </motion.div>
 
-            {/* Support Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-white font-bold text-base mb-4">
-                {t('footer.support.title')}
-              </h4>
-              <ul className="space-y-2.5">
-                {footerLinks.support.map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-green-400 transition-colors duration-300 text-sm inline-block"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            
           </div>
 
           {/* Bottom Bar */}
           <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
             <p className="text-gray-400 text-xs">
               © {new Date().getFullYear()} Al-Wafaa. {t('footer.rights')}
+            </p>
+            <p className="text-gray-500 text-xs">
+              Powered by{' '}
+              <a
+                href="https://moamenabdeltawab.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-400 hover:text-purple-300 transition-colors duration-300 font-medium"
+              >
+                Mo'men Abdeltawab
+              </a>
             </p>
           </div>
         </div>

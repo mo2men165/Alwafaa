@@ -19,7 +19,8 @@
     "about": "About Us",
     "products": "Products",
     "services": "Export Services",
-    "contact": "Contact"
+    "contact": "Contact",
+    "language": "Language"
   },
   "hero": {
     "mainHeading": "Premium Egyptian Bananas",
@@ -67,11 +68,17 @@
     "description": "Decades of excellence delivering premium bananas worldwide",
     "years": "Years of Excellence",
     "yearsDesc": "Trusted excellence since 2000",
-    "countries": "Countries Served",
+    "countries": "Countries We Serve",
     "countriesDesc": "Worldwide distribution network",
     "tons": "Tons Exported",
     "tonsDesc": "Annual premium banana exports",
-    "footnote": "Trusted by importers and distributors across the globe"
+    "footnote": "Trusted by importers and distributors across the globe",
+    "badges": {
+      "sustainable": "Sustainable Operations",
+      "iso": "ISO Certified",
+      "logistics": "Global Logistics",
+      "quality": "Premium Quality"
+    }
   },
   "products": {
     "subtitle": "Our Selection",
@@ -90,7 +97,7 @@
     "bulk": {
       "name": "Bulk Export",
       "category": "Commercial",
-      "description": "Large-scale orders for distributors and retail chains"
+      "description": "Large-scale orders for major distributors and retail chains worldwide"
     },
     "cta": "Learn More"
   },
@@ -230,8 +237,8 @@
       ]
     },
     "standard": {
-      "name": "Standard Export",
-      "category": "Grade B",
+      "name": "Bulk Export",
+      "category": "Commercial Grade",
       "description": "High-quality bananas ideal for bulk orders and processing applications.",
       "specifications": {
         "size": "15-20 cm",
@@ -260,37 +267,57 @@
   "certifications": {
     "label": "Trust & Compliance",
     "title": "Certifications & Standards",
-    "description": "Our commitment to excellence is validated by internationally recognized certifications and rigorous quality standards",
+    "description": "Our commitment to excellence is validated by both international and Egyptian certifications, ensuring compliance with global and local quality standards",
     "certs": {
       "iso9001": {
         "name": "ISO 9001:2015",
         "category": "Quality Management",
-        "description": "International standard for quality management systems ensuring consistent quality and customer satisfaction."
+        "description": "International quality management standard ensuring consistent excellence and customer satisfaction."
+      },
+      "eos": {
+        "name": "EOS Certified",
+        "category": "Egyptian Standards",
+        "description": "Egyptian national quality certification ensuring compliance with local standards and regulations."
       },
       "iso22000": {
         "name": "ISO 22000",
         "category": "Food Safety",
-        "description": "Global food safety management standard covering the entire food chain from farm to fork."
+        "description": "Global food safety management covering the entire chain from farm to consumer delivery."
+      },
+      "nfsa": {
+        "name": "NFSA Certified",
+        "category": "Egyptian Food Safety",
+        "description": "National authority certification ensuring strict adherence to Egypt's food safety standards."
       },
       "haccp": {
         "name": "HACCP",
         "category": "Hazard Analysis",
-        "description": "Systematic preventive approach to food safety identifying and controlling biological, chemical, and physical hazards."
+        "description": "Systematic approach identifying and controlling biological, chemical, and physical food hazards."
+      },
+      "arc": {
+        "name": "ARC Certified",
+        "category": "Agricultural Quality",
+        "description": "Agricultural center certification validating superior farming practices and produce excellence."
       },
       "globalGap": {
         "name": "GlobalGAP",
         "category": "Agricultural Practices",
-        "description": "Leading farm assurance program translating consumer requirements into good agricultural practices worldwide."
+        "description": "Leading farm assurance translating consumer requirements into good agricultural practices."
+      },
+      "goeic": {
+        "name": "GOEIC Certified",
+        "category": "Government Export Control",
+        "description": "General Organization for Export and Import Control certification ensuring government compliance."
       },
       "organic": {
         "name": "Organic Certification",
         "category": "Organic Standards",
-        "description": "Certified organic production methods ensuring products meet strict organic standards without synthetic inputs."
+        "description": "Certified organic production ensuring strict standards compliance without synthetic chemicals."
       },
       "fairTrade": {
         "name": "Fair Trade",
         "category": "Ethical Sourcing",
-        "description": "Commitment to fair prices, decent working conditions, and sustainable farming practices for producers."
+        "description": "Commitment to fair pricing, decent working conditions, and sustainable farming practices."
       }
     },
     "qualityStandards": {
@@ -534,22 +561,311 @@
       }
     }
   },
+  "servicesOverview": {
+    "label": "What We Offer",
+    "title": "Comprehensive Services",
+    "description": "From farm to final destination, we provide end-to-end solutions for international export and domestic distribution across Egypt",
+    "featuresLabel": "Key Features",
+    "whyChooseUs": {
+      "title": "Why Partner With Us",
+      "description": "Decades of experience meeting the evolving needs of international importers and domestic buyers",
+      "experience": "25+ Years Experience",
+      "certified": "Internationally Certified",
+      "reliable": "On-Time Delivery",
+      "sustainable": "Sustainable Practices"
+    },
+    "services": {
+      "export": {
+        "title": "International Export",
+        "description": "Full-service international export solutions to over 40 countries across 5 continents with complete documentation and compliance support.",
+        "features": [
+          "Export documentation & customs clearance",
+          "Container booking and shipping coordination",
+          "Phytosanitary certificates & origin documentation",
+          "Compliance with destination country regulations",
+          "Real-time shipment tracking"
+        ],
+        "highlights": ["40+ Countries", "FOB/CIF Terms", "Air/Sea Freight"]
+      },
+      "domestic": {
+        "title": "Domestic Distribution",
+        "description": "Serving the Egyptian market with fresh bananas delivered to major cities including Cairo, Alexandria, Giza, and beyond.",
+        "features": [
+          "Daily deliveries to Cairo, Alexandria, Giza",
+          "Regional distribution network across Egypt",
+          "Direct supply to supermarkets and retailers",
+          "Temperature-controlled local transport",
+          "Flexible payment terms for regular clients"
+        ],
+        "highlights": ["20+ Cities", "Same-Day Cairo", "Weekly Routes"]
+      },
+      "wholesale": {
+        "title": "Wholesale & B2B",
+        "description": "Bulk supply solutions for hotels, restaurants, catering companies, and institutional buyers with consistent quality and competitive pricing.",
+        "features": [
+          "Volume discounts for regular buyers",
+          "Dedicated account management",
+          "Custom delivery schedules",
+          "Quality consistency guarantees",
+          "Long-term contract options"
+        ],
+        "highlights": ["Bulk Pricing", "Hotels & Restaurants", "Institutional"]
+      },
+      "custom": {
+        "title": "Custom Solutions",
+        "description": "Private label packaging, custom branding, and tailored solutions to meet your specific market requirements and brand identity.",
+        "features": [
+          "Private label packaging design",
+          "Custom box printing with your branding",
+          "Special size and weight configurations",
+          "Unique ripening stage requirements",
+          "Specialized packaging materials"
+        ],
+        "highlights": ["Private Label", "Custom Branding", "Flexible Specs"]
+      },
+      "quality": {
+        "title": "Quality Assurance",
+        "description": "Comprehensive quality control from farm inspection to final shipment, ensuring only the finest bananas reach your market.",
+        "features": [
+          "Pre-shipment quality inspection",
+          "Third-party certification available",
+          "Laboratory testing for organic products",
+          "Photographic quality reports",
+          "Rejection and replacement guarantees"
+        ],
+        "highlights": ["100% Inspected", "Lab Tested", "Photo Reports"]
+      },
+      "logistics": {
+        "title": "Logistics Management",
+        "description": "End-to-end cold chain logistics ensuring optimal temperature control from harvest through delivery to maintain freshness.",
+        "features": [
+          "Temperature-controlled cold storage",
+          "Refrigerated container management",
+          "GPS tracking on all shipments",
+          "Port handling and coordination",
+          "Insurance and risk management"
+        ],
+        "highlights": ["Cold Chain", "GPS Tracked", "Insured Shipments"]
+      }
+    }
+  },
+  "exportProcess": {
+    "label": "How It Works",
+    "title": "Export Process",
+    "description": "From your first inquiry to final delivery, we manage every step of the export process with precision and transparency",
+    "steps": {
+      "inquiry": {
+        "title": "Inquiry & Quote",
+        "description": "Receive detailed quotations with specifications, pricing, and delivery terms.",
+        "details": [
+          "Product specifications discussion",
+          "Competitive pricing based on volume",
+          "FOB/CIF terms explanation",
+          "Delivery timeline estimation"
+        ]
+      },
+      "quality": {
+        "title": "Quality Inspection",
+        "description": "Pre-shipment inspection ensures products meet your exact requirements.",
+        "details": [
+          "Farm-level quality checks",
+          "Size and color grading",
+          "Photographic documentation",
+          "Third-party inspection available"
+        ]
+      },
+      "documentation": {
+        "title": "Documentation",
+        "description": "Complete export documentation prepared for seamless customs clearance.",
+        "details": [
+          "Commercial invoice",
+          "Phytosanitary certificate",
+          "Certificate of origin",
+          "Packing list and specifications"
+        ]
+      },
+      "packaging": {
+        "title": "Packaging",
+        "description": "Professional packaging ensuring product integrity during transport.",
+        "details": [
+          "Export-grade cartons",
+          "Protective cushioning materials",
+          "Custom branding options",
+          "Palletization and securing"
+        ]
+      },
+      "shipping": {
+        "title": "Shipping",
+        "description": "Coordinated shipping through our network of trusted logistics partners.",
+        "details": [
+          "Container booking confirmation",
+          "Port handling coordination",
+          "Bill of lading issuance",
+          "Real-time status updates"
+        ]
+      },
+      "delivery": {
+        "title": "Delivery & Support",
+        "description": "Continued support until successful delivery and beyond.",
+        "details": [
+          "Shipment tracking information",
+          "Arrival notifications",
+          "Quality follow-up",
+          "Ongoing partnership support"
+        ]
+      }
+    },
+    "info": {
+      "ports": {
+        "title": "Egyptian Ports",
+        "description": "Shipping from Alexandria, Port Said, Damietta, and Sokhna ports with modern facilities and efficient handling."
+      },
+      "methods": {
+        "title": "Shipping Methods",
+        "description": "Refrigerated sea containers for standard shipments, air freight available for urgent orders and premium markets."
+      },
+      "compliance": {
+        "title": "Full Compliance",
+        "description": "All shipments comply with destination country regulations including EU, GCC, US, and Asian market requirements."
+      }
+    }
+  },
+  "domesticOps": {
+    "label": "Serving Egypt",
+    "title": "Domestic Distribution",
+    "description": "Comprehensive distribution network delivering fresh bananas across Egypt with daily routes and flexible services",
+    "coverage": {
+      "title": "Distribution Coverage",
+      "description": "We serve major Egyptian cities with regular delivery routes and temperature-controlled transport:",
+      "cities": [
+        "Cairo & Giza",
+        "Alexandria",
+        "Mansoura",
+        "Zagazig",
+        "Tanta",
+        "Ismailia",
+        "Port Said",
+        "Suez",
+        "Damietta",
+        "Fayoum",
+        "Beni Suef",
+        "Minya"
+      ]
+    },
+    "clients": {
+      "retail": {
+        "title": "Retail & Supermarkets",
+        "description": "Direct supply to supermarket chains and independent retailers with consistent quality and competitive pricing.",
+        "examples": ["Supermarkets", "Hypermarkets", "Grocery Stores"]
+      },
+      "wholesale": {
+        "title": "Wholesale Markets",
+        "description": "Bulk supply to wholesale markets and distributors across Egypt with flexible payment terms.",
+        "examples": ["Obour Market", "6th October", "Regional Wholesalers"]
+      },
+      "hospitality": {
+        "title": "Hotels & Restaurants",
+        "description": "Tailored services for hospitality sector with custom delivery schedules and premium selections.",
+        "examples": ["Hotels", "Restaurants", "Catering Companies"]
+      }
+    },
+    "features": {
+      "delivery": {
+        "title": "Reliable Delivery",
+        "description": "Same-day delivery in Cairo, next-day for most cities"
+      },
+      "schedule": {
+        "title": "Flexible Schedules",
+        "description": "Custom delivery times to match your operational needs"
+      },
+      "payment": {
+        "title": "Payment Terms",
+        "description": "Cash, credit, and monthly invoicing for regular clients"
+      },
+      "support": {
+        "title": "Local Support",
+        "description": "Arabic-speaking team available for orders and inquiries"
+      }
+    }
+  },
+  "qualityLogistics": {
+    "label": "Excellence Standards",
+    "title": "Quality & Logistics",
+    "description": "Industry-leading quality control and cold chain management ensuring perfect condition from farm to destination",
+    "quality": {
+      "title": "Quality Control",
+      "description": "Multi-stage inspection process with comprehensive documentation at every checkpoint:",
+      "methods": {
+        "visual": {
+          "title": "Visual Inspection",
+          "description": "Expert graders assess size, color, ripeness, and blemishes at harvest and pre-shipment"
+        },
+        "lab": {
+          "title": "Laboratory Testing",
+          "description": "Chemical analysis, pesticide residue testing, and nutritional profiling for organic products"
+        },
+        "monitoring": {
+          "title": "Continuous Monitoring",
+          "description": "Quality checks at farm, packing house, cold storage, and before loading"
+        },
+        "certification": {
+          "title": "Third-Party Certification",
+          "description": "SGS, Bureau Veritas, and other international inspection services available"
+        }
+      }
+    },
+    "coldChain": {
+      "title": "Cold Chain Management",
+      "description": "Unbroken temperature control from post-harvest cooling through final delivery:",
+      "methods": {
+        "temperature": {
+          "title": "Precision Temperature",
+          "description": "Maintained at 13-14°C with ±0.5°C accuracy using advanced monitoring systems"
+        },
+        "transport": {
+          "title": "Refrigerated Transport",
+          "description": "Temperature-controlled trucks and reefer containers with backup power systems"
+        },
+        "tracking": {
+          "title": "Real-Time Tracking",
+          "description": "GPS and temperature sensors provide live updates throughout the journey"
+        },
+        "storage": {
+          "title": "Cold Storage Facilities",
+          "description": "State-of-the-art cold rooms with humidity control and rapid cooling capabilities"
+        }
+      }
+    },
+    "stats": {
+      "stat1Value": "100%",
+      "stat1Label": "Inspection Rate",
+      "stat2Value": "±0.5°C",
+      "stat2Label": "Temperature Accuracy",
+      "stat3Value": "24/7",
+      "stat3Label": "Monitoring",
+      "stat4Value": "99.8%",
+      "stat4Label": "On-Time Delivery"
+    }
+  },
   "contactForm": {
     "label": "Get In Touch",
     "title": "Contact Us",
     "description": "Ready to partner with us? Get in touch and let's discuss how we can serve your fresh produce needs",
     "form": {
       "fullName": "Full Name *",
-      "fullNamePlaceholder": "John Doe",
+      "fullNamePlaceholder": "Ahmed Hassan",
       "email": "Email Address *",
-      "emailPlaceholder": "john@example.com",
+      "emailPlaceholder": "ahmed@trading.sa",
       "phone": "Phone Number",
-      "phonePlaceholder": "+1 234 567 8900",
+      "phonePlaceholder": "+966 50 123 4567",
       "country": "Country",
-      "countryPlaceholder": "United States",
+      "countryPlaceholder": "Saudi Arabia",
       "message": "Message *",
-      "messagePlaceholder": "Tell us about your requirements...",
-      "submitButton": "Send Message"
+      "messagePlaceholder": "I'm interested in importing premium Egyptian bananas...",
+      "submitButton": "Send Message",
+      "submitting": "Sending...",
+      "successMessage": "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+      "errorMessage": "Oops! Something went wrong. Please try again later."
     },
     "contactInfo": {
       "title": "Contact Information",
@@ -559,11 +875,11 @@
       },
       "email": {
         "label": "Email",
-        "value": "info@alwafaa-export.com"
+        "value": "info@alwafaaa.com"
       },
       "phone": {
         "label": "Phone",
-        "value": "+20 2 1234 5678"
+        "value": "0109 904 2527"
       },
       "businessHours": {
         "label": "Business Hours",
@@ -623,6 +939,154 @@
         "countries": ["USA", "Canada"],
         "volume": "10%"
       }
+    }
+  },
+  "ctaSection": {
+    "badge": "Premium Egyptian Bananas",
+    "mainHeading": "Ready to Elevate Your",
+    "mainHeadingLine2": "Banana Supply?",
+    "subheading": "Partner with Egypt's leading banana exporter. Premium quality, global reach, unmatched freshness.",
+    "stats": {
+      "countries": "50+ Countries",
+      "quality": "Farm-Fresh Quality",
+      "support": "24/7 Support"
+    },
+    "buttons": {
+      "getQuote": "Get a Quote",
+      "viewCatalog": "View Catalog"
+    },
+    "trustText": "Trusted by leading retailers and distributors worldwide"
+  },
+  "detailedProducts": {
+    "sectionLabel": "Product Intelligence",
+    "sectionTitle": "Explore Our Premium Range",
+    "sectionDescription": "Comprehensive insights into sourcing, cultivation, and market positioning to help you make informed purchasing decisions",
+    "sourcingTitle": "Sourcing & Origin",
+    "region": "Region",
+    "farms": "Partner Farms",
+    "harvestCycle": "Harvest Cycle",
+    "logisticsTitle": "Logistics & Ordering",
+    "minOrder": "Minimum Order",
+    "leadTime": "Lead Time",
+    "shippingMethods": "Shipping",
+    "nutritionTitle": "Nutrition & Health",
+    "marketsTitle": "Ideal Markets",
+    "availability": "Availability",
+    "priceRange": "Price Positioning",
+    "certifications": "Certifications",
+    "premium": {
+      "intro": "Sourced exclusively from select Nile Delta plantations, our Premium Export Grade represents two decades of perfecting cultivation and post-harvest handling techniques for international markets.",
+      "stats": {
+        "stat1Value": "5,000+",
+        "stat1Label": "Tons/Year",
+        "stat2Value": "35+",
+        "stat2Label": "Countries",
+        "stat3Value": "12",
+        "stat3Label": "Elite Farms"
+      },
+      "sourcing": {
+        "region": "Nile Delta, Giza & Qalyubia",
+        "farms": "12 certified elite farms",
+        "harvestCycle": "Year-round, peak Mar-Nov"
+      },
+      "nutrition": [
+        "High in potassium (422mg per 100g) - supports heart health",
+        "Rich in vitamin B6 for metabolism and brain function",
+        "Excellent source of dietary fiber (2.6g per 100g)",
+        "Natural energy boost from natural sugars and carbs",
+        "Contains vitamin C and antioxidants for immunity"
+      ],
+      "logistics": {
+        "minOrder": "1 container (20ft = 1,000 cartons)",
+        "leadTime": "14-21 days port to port",
+        "shippingMethods": "Refrigerated containers, Air freight available"
+      },
+      "markets": [
+        "Premium supermarket chains in EU & Middle East",
+        "High-end hotels and resorts worldwide",
+        "Specialty organic and gourmet retailers",
+        "Export to Japan, UAE, Saudi Arabia, Germany",
+        "Corporate gifting and luxury fruit basket suppliers"
+      ],
+      "availability": "Year-round with peak season March-November",
+      "priceRange": "Premium tier - 15-20% above market average",
+      "certifications": "ISO 9001, GlobalGAP, HACCP, Fair Trade"
+    },
+    "organic": {
+      "intro": "Cultivated on dedicated organic farms in Upper Egypt using biodynamic principles and traditional farming wisdom passed down through generations, certified by international organic standards.",
+      "stats": {
+        "stat1Value": "2,500+",
+        "stat1Label": "Tons/Year",
+        "stat2Value": "18+",
+        "stat2Label": "Countries",
+        "stat3Value": "6",
+        "stat3Label": "Organic Farms"
+      },
+      "sourcing": {
+        "region": "Upper Egypt organic zones",
+        "farms": "6 USDA & EU organic certified farms",
+        "harvestCycle": "Seasonal, peak Apr-Oct"
+      },
+      "nutrition": [
+        "Higher antioxidant levels than conventional bananas",
+        "Zero pesticide residues - laboratory tested",
+        "Enhanced mineral content from organic soil practices",
+        "Natural sweetness without chemical ripening agents",
+        "Better for gut health with natural microbiome support"
+      ],
+      "logistics": {
+        "minOrder": "Half container (500 cartons minimum)",
+        "leadTime": "16-24 days with organic cert docs",
+        "shippingMethods": "Dedicated organic containers, segregated storage"
+      },
+      "markets": [
+        "Certified organic retailers in Europe & North America",
+        "Health-conscious consumer markets",
+        "Vegan and vegetarian specialty stores",
+        "Organic subscription box services",
+        "Farm-to-table restaurants and eco-resorts"
+      ],
+      "availability": "Seasonal Apr-Oct, limited off-season supply",
+      "priceRange": "Premium organic - 25-35% above standard",
+      "certifications": "USDA Organic, EU Organic, OEFFA, GlobalGAP"
+    },
+    "standard": {
+      "intro": "High-volume export solution from our network of 50+ partner farms across Egypt's prime banana-growing regions. Optimized for cost-efficiency while maintaining food safety and quality standards.",
+      "stats": {
+        "stat1Value": "12,000+",
+        "stat1Label": "Tons/Year",
+        "stat2Value": "25+",
+        "stat2Label": "Countries",
+        "stat3Value": "50+",
+        "stat3Label": "Partner Farms"
+      },
+      "sourcing": {
+        "region": "Multiple regions across Egypt",
+        "farms": "50+ certified partner farms",
+        "harvestCycle": "Year-round continuous supply"
+      },
+      "nutrition": [
+        "Complete nutritional profile - same as premium grades",
+        "Ideal for processing into smoothies and baked goods",
+        "High energy density for institutional catering",
+        "Cost-effective source of essential vitamins",
+        "Perfect for banana-based product manufacturing"
+      ],
+      "logistics": {
+        "minOrder": "2+ containers (flexible for regular buyers)",
+        "leadTime": "10-18 days port to port",
+        "shippingMethods": "Standard refrigerated containers, bulk consolidation"
+      },
+      "markets": [
+        "Large retail chains requiring volume and value",
+        "Food processing and manufacturing facilities",
+        "Institutional buyers (schools, hospitals, military)",
+        "Secondary markets and wholesale distributors",
+        "Emerging markets with price sensitivity"
+      ],
+      "availability": "Year-round reliable supply",
+      "priceRange": "Competitive market pricing - best value",
+      "certifications": "ISO 22000, HACCP, Egyptian NFSA"
     }
   }
 }

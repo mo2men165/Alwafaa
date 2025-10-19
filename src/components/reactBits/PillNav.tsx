@@ -22,6 +22,8 @@ export interface PillNavProps {
   pillTextColor?: string;
   onMobileMenuClick?: () => void;
   initialLoadAnimation?: boolean;
+  mobileMenuFooter?: React.ReactNode;
+  closeMobileMenu?: boolean;
 }
 
 const PillNav: React.FC<PillNavProps> = ({
@@ -37,7 +39,9 @@ const PillNav: React.FC<PillNavProps> = ({
   hoveredPillTextColor = '#060010',
   pillTextColor,
   onMobileMenuClick,
-  initialLoadAnimation = true
+  initialLoadAnimation = true,
+  mobileMenuFooter,
+  closeMobileMenu = false
 }) => {
   const resolvedNavBgColor = navBackgroundColor ?? baseColor;
   const resolvedPillTextColor = pillTextColor ?? baseColor;
@@ -142,6 +146,60 @@ const PillNav: React.FC<PillNavProps> = ({
     return () => window.removeEventListener('resize', onResize);
   }, [items, ease, initialLoadAnimation]);
 
+  // Sync hamburger animation with menu state
+  useEffect(() => {
+    const hamburger = hamburgerRef.current;
+    const menu = mobileMenuRef.current;
+    
+    if (hamburger) {
+      const lines = hamburger.querySelectorAll('.hamburger-line');
+      if (isMobileMenuOpen) {
+        gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3, ease });
+        gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3, ease });
+      } else {
+        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
+        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
+      }
+    }
+
+    if (menu) {
+      if (isMobileMenuOpen) {
+        gsap.set(menu, { visibility: 'visible' });
+        gsap.fromTo(
+          menu,
+          { opacity: 0, y: 10, scaleY: 1 },
+          {
+            opacity: 1,
+            y: 0,
+            scaleY: 1,
+            duration: 0.3,
+            ease,
+            transformOrigin: 'top center'
+          }
+        );
+      } else {
+        gsap.to(menu, {
+          opacity: 0,
+          y: 10,
+          scaleY: 1,
+          duration: 0.2,
+          ease,
+          transformOrigin: 'top center',
+          onComplete: () => {
+            gsap.set(menu, { visibility: 'hidden' });
+          }
+        });
+      }
+    }
+  }, [isMobileMenuOpen, ease]);
+
+  // Close mobile menu when parent requests it
+  useEffect(() => {
+    if (closeMobileMenu && isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [closeMobileMenu, isMobileMenuOpen]);
+
   const handleEnter = (i: number) => {
     const tl = tlRefs.current[i];
     if (!tl) return;
@@ -178,53 +236,7 @@ const PillNav: React.FC<PillNavProps> = ({
   };
 
   const toggleMobileMenu = () => {
-    const newState = !isMobileMenuOpen;
-    setIsMobileMenuOpen(newState);
-
-    const hamburger = hamburgerRef.current;
-    const menu = mobileMenuRef.current;
-
-    if (hamburger) {
-      const lines = hamburger.querySelectorAll('.hamburger-line');
-      if (newState) {
-        gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3, ease });
-      } else {
-        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
-        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
-      }
-    }
-
-    if (menu) {
-      if (newState) {
-        gsap.set(menu, { visibility: 'visible' });
-        gsap.fromTo(
-          menu,
-          { opacity: 0, y: 10, scaleY: 1 },
-          {
-            opacity: 1,
-            y: 0,
-            scaleY: 1,
-            duration: 0.3,
-            ease,
-            transformOrigin: 'top center'
-          }
-        );
-      } else {
-        gsap.to(menu, {
-          opacity: 0,
-          y: 10,
-          scaleY: 1,
-          duration: 0.2,
-          ease,
-          transformOrigin: 'top center',
-          onComplete: () => {
-            gsap.set(menu, { visibility: 'hidden' });
-          }
-        });
-      }
-    }
-
+    setIsMobileMenuOpen(!isMobileMenuOpen);
     onMobileMenuClick?.();
   };
 
@@ -423,13 +435,13 @@ const PillNav: React.FC<PillNavProps> = ({
 
       <div
         ref={mobileMenuRef}
-        className="md:hidden absolute top-[4em] left-4 right-4 rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
+        className="md:hidden absolute top-[5em] left-4 right-4 rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
         style={{
           ...cssVars,
           background: 'var(--nav-bg, #f0f0f0)'
         }}
       >
-        <ul className="list-none m-0 p-[3px] flex flex-col gap-[3px]">
+        <ul className="list-none m-0 p-[3px] flex flex-col gap-[6px]">
           {items.map(item => {
             const defaultStyle: React.CSSProperties = {
               background: 'var(--pill-bg, #fff)',
@@ -447,6 +459,10 @@ const PillNav: React.FC<PillNavProps> = ({
             const linkClasses =
               'block py-3 px-4 text-[16px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]';
 
+            const handleLinkClick = () => {
+              setIsMobileMenuOpen(false);
+            };
+
             return (
               <li key={item.href}>
                 {isRouterLink(item.href) ? (
@@ -456,7 +472,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={handleLinkClick}
                   >
                     {item.label}
                   </Link>
@@ -467,7 +483,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={handleLinkClick}
                   >
                     {item.label}
                   </a>
@@ -476,6 +492,12 @@ const PillNav: React.FC<PillNavProps> = ({
             );
           })}
         </ul>
+        
+        {mobileMenuFooter && (
+          <div className="border-t border-gray-200/20 p-3">
+            {mobileMenuFooter}
+          </div>
+        )}
       </div>
     </div>
   );

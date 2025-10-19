@@ -7,8 +7,9 @@ const AboutPage: React.FC = () => {
 
   return <>
       <CompanyStory />
-      <CompanyValues />
       <Certifications />
+      <CompanyValues />
+
       </>
 };
 

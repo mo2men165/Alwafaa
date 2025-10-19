@@ -76,7 +76,7 @@ export default function CompanyIntro() {
           <GradientText
             colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
             animationSpeed={6}
-            className="text-5xl md:text-7xl font-light tracking-tight mb-8"
+            className="text-4xl md:text-7xl leading-relaxed font-light tracking-tight mb-8 px-4"
           >
             {t('intro.mainTitle')}
           </GradientText>

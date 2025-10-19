@@ -4,6 +4,13 @@ import GradientText from './reactBits/GradientText';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  message?: string;
+}
+
 export default function ContactForm() {
   const { t } = useTranslation();
   const [ref, inView] = useInView({
@@ -19,14 +26,101 @@ export default function ContactForm() {
     message: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    // Phone validation (optional but validate if provided)
+    if (formData.phone.trim()) {
+      const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/;
+      if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
+        newErrors.phone = 'Please enter a valid phone number';
+      }
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    
+    // Clear error for this field when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors({ ...errors, [name]: undefined });
+    }
+    
+    // Reset submit status when user makes changes after submission
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle');
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
+    
+    // Validate form
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://formspree.io/f/xdkwjeob', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          country: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -77,7 +171,7 @@ export default function ContactForm() {
           <GradientText
             colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
             animationSpeed={6}
-            className="text-5xl md:text-7xl font-light tracking-tight mb-8"
+            className="text-4xl md:text-7xl leading-relaxed font-light tracking-tight mb-8 px-4"
           >
             {t('contactForm.title')}
           </GradientText>
@@ -100,36 +194,74 @@ export default function ContactForm() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl"
+                >
+                  <p className="text-emerald-700 text-sm font-light">
+                    ✓ {t('contactForm.form.successMessage')}
+                  </p>
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-50 border border-red-200 rounded-xl"
+                >
+                  <p className="text-red-700 text-sm font-light">
+                    ✗ {t('contactForm.form.errorMessage')}
+                  </p>
+                </motion.div>
+              )}
+
               {/* Name */}
               <div>
                 <label className="block text-sm font-light text-slate-700 mb-2">
-                  {t('contactForm.form.fullName')}
+                  {t('contactForm.form.fullName')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-emerald-500 transition-colors duration-300 text-slate-900 font-light"
+                  className={`w-full px-4 py-3 bg-white border rounded-xl focus:outline-none transition-colors duration-300 text-slate-900 font-light ${
+                    errors.name 
+                      ? 'border-red-300 focus:border-red-500' 
+                      : 'border-slate-200 focus:border-emerald-500'
+                  }`}
                   placeholder={t('contactForm.form.fullNamePlaceholder')}
                 />
+                {errors.name && (
+                  <p className="mt-1 text-xs text-red-600 font-light">{errors.name}</p>
+                )}
               </div>
 
               {/* Email */}
               <div>
                 <label className="block text-sm font-light text-slate-700 mb-2">
-                  {t('contactForm.form.email')}
+                  {t('contactForm.form.email')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-emerald-500 transition-colors duration-300 text-slate-900 font-light"
+                  className={`w-full px-4 py-3 bg-white border rounded-xl focus:outline-none transition-colors duration-300 text-slate-900 font-light ${
+                    errors.email 
+                      ? 'border-red-300 focus:border-red-500' 
+                      : 'border-slate-200 focus:border-emerald-500'
+                  }`}
                   placeholder={t('contactForm.form.emailPlaceholder')}
                 />
+                {errors.email && (
+                  <p className="mt-1 text-xs text-red-600 font-light">{errors.email}</p>
+                )}
               </div>
 
               {/* Phone & Country */}
@@ -143,9 +275,16 @@ export default function ContactForm() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-emerald-500 transition-colors duration-300 text-slate-900 font-light"
+                    className={`w-full px-4 py-3 bg-white border rounded-xl focus:outline-none transition-colors duration-300 text-slate-900 font-light ${
+                      errors.phone 
+                        ? 'border-red-300 focus:border-red-500' 
+                        : 'border-slate-200 focus:border-emerald-500'
+                    }`}
                     placeholder={t('contactForm.form.phonePlaceholder')}
                   />
+                  {errors.phone && (
+                    <p className="mt-1 text-xs text-red-600 font-light">{errors.phone}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-light text-slate-700 mb-2">
@@ -165,25 +304,44 @@ export default function ContactForm() {
               {/* Message */}
               <div>
                 <label className="block text-sm font-light text-slate-700 mb-2">
-                  {t('contactForm.form.message')}
+                  {t('contactForm.form.message')} <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
                   rows={6}
-                  className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-emerald-500 transition-colors duration-300 text-slate-900 font-light resize-none"
+                  className={`w-full px-4 py-3 bg-white border rounded-xl focus:outline-none transition-colors duration-300 text-slate-900 font-light resize-none ${
+                    errors.message 
+                      ? 'border-red-300 focus:border-red-500' 
+                      : 'border-slate-200 focus:border-emerald-500'
+                  }`}
                   placeholder={t('contactForm.form.messagePlaceholder')}
                 />
+                {errors.message && (
+                  <p className="mt-1 text-xs text-red-600 font-light">{errors.message}</p>
+                )}
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-4 px-6 bg-gradient-to-r from-emerald-500 to-blue-500 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+                disabled={isSubmitting}
+                className={`w-full py-4 px-6 bg-gradient-to-r from-emerald-500 to-blue-500 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 ${
+                  isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
+                }`}
               >
-                {t('contactForm.form.submitButton')}
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    {t('contactForm.form.submitting')}
+                  </span>
+                ) : (
+                  t('contactForm.form.submitButton')
+                )}
               </button>
             </form>
           </motion.div>

@@ -72,7 +72,7 @@ export default function CompanyValues() {
           <GradientText
             colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
             animationSpeed={6}
-            className="text-5xl leading-relaxed md:text-7xl font-light tracking-tight mb-8"
+            className="text-4xl leading-relaxed md:text-7xl font-light tracking-tight mb-8 px-4"
           >
             {t('companyValues.title')}
           </GradientText>
@@ -97,23 +97,26 @@ export default function CompanyValues() {
               transition={{ duration: 0.7, delay: 0.6 + index * 0.15 }}
             >
               <Magnet padding={60} magnetStrength={3}>
-                <div className="relative h-full bg-white rounded-2xl p-8 border border-slate-200 hover:border-slate-300 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group">
+                <div className="relative h-full bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-slate-300 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group" style={{ borderColor: `${value.accentColor}20` }}>
                   {/* Top Accent Line */}
-                  <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${value.gradient} transition-opacity duration-500`}></div>
 
                   {/* Subtle Glow */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500`}></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500`}></div>
 
                   {/* Content */}
                   <div className="relative space-y-6">
                     {/* Number Indicator */}
                     <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${value.gradient} opacity-10 flex items-center justify-center`}>
-                        <span className={`text-xl font-light bg-gradient-to-r ${value.gradient} bg-clip-text text-transparent`}>
-                          {String(value.id).padStart(2, '0')}
+                      <div className="relative w-12 h-12 rounded-full flex items-center justify-center">
+                        {/* Background layer with opacity */}
+                        <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${value.gradient} opacity-20`}></div>
+                        {/* Icon at full opacity */}
+                        <span className="relative z-10 text-2xl group-hover:rotate-[360deg] transition-transform duration-700 ease-in-out inline-block">
+                          🍌
                         </span>
                       </div>
-                      <div className="h-[1px] flex-1 bg-gradient-to-r from-slate-200 to-transparent"></div>
+                      <div className={`h-[1px] flex-1 bg-gradient-to-r ${value.gradient} opacity-30`}></div>
                     </div>
 
                     {/* Title */}
@@ -130,7 +133,7 @@ export default function CompanyValues() {
                     <div className="pt-4 border-t border-slate-100 space-y-3">
                       {value.details.map((detail, idx) => (
                         <div key={idx} className="flex items-start gap-3">
-                          <span className={`w-1 h-1 rounded-full bg-gradient-to-r ${value.gradient} mt-2 flex-shrink-0`}></span>
+                          <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${value.gradient} mt-2 flex-shrink-0`}></span>
                           <span className="text-xs text-slate-600 font-light leading-relaxed">
                             {detail}
                           </span>
@@ -140,7 +143,7 @@ export default function CompanyValues() {
                   </div>
 
                   {/* Bottom Accent */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r ${value.gradient} opacity-50`}></div>
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${value.gradient}`}></div>
                 </div>
               </Magnet>
             </motion.div>

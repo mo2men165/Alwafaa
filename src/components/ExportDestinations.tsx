@@ -81,7 +81,7 @@ export default function ExportDestinations() {
           <GradientText
             colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
             animationSpeed={6}
-            className="text-5xl leading-relaxed md:text-7xl font-light tracking-tight mb-8"
+            className="text-4xl leading-relaxed md:text-7xl font-light tracking-tight mb-8 px-4"
           >
             {t('exportDestinations.title')}
           </GradientText>
@@ -115,37 +115,6 @@ export default function ExportDestinations() {
           ))}
         </motion.div>
 
-        {/* Map Placeholder */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="relative bg-slate-50 rounded-2xl p-12 border border-slate-200 mb-16 overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-blue-500/5 to-amber-500/5"></div>
-          
-          {/* Map Placeholder Visualization */}
-          <div className="relative h-96 flex items-center justify-center">
-            <div className="absolute inset-0 opacity-10">
-              <svg viewBox="0 0 800 400" className="w-full h-full">
-                {/* Simple world map representation */}
-                <circle cx="200" cy="200" r="80" fill="#10b981" opacity="0.2"/>
-                <circle cx="400" cy="150" r="100" fill="#3b82f6" opacity="0.2"/>
-                <circle cx="600" cy="180" r="70" fill="#8b5cf6" opacity="0.2"/>
-                <circle cx="150" cy="120" r="60" fill="#f59e0b" opacity="0.2"/>
-              </svg>
-            </div>
-            <div className="text-center space-y-3 relative z-10">
-              <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-blue-500 opacity-20 flex items-center justify-center">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-blue-500 opacity-50"></div>
-              </div>
-              <p className="text-sm text-slate-500 font-light">
-                {t('exportDestinations.mapPlaceholder')}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Regions Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {regions.map((region, index) => (
@@ -169,7 +138,7 @@ export default function ExportDestinations() {
                       {region.name}
                     </h3>
                     <div className={`px-4 py-1.5 rounded-full bg-gradient-to-r ${region.gradient} bg-opacity-10`}>
-                      <span className={`text-sm font-medium bg-gradient-to-r ${region.gradient} bg-clip-text text-transparent`}>
+                      <span className={`text-sm font-medium bg-gradient-to-r ${region.gradient} bg-clip-text text-white`}>
                         {region.volume}
                       </span>
                     </div>
@@ -187,6 +156,27 @@ export default function ExportDestinations() {
             </motion.div>
           ))}
         </div>
+
+        {/* Interactive Map */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-16 relative bg-slate-50 rounded-2xl p-8 border border-slate-200 overflow-hidden max-w-4xl mx-auto"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-blue-500/5 to-amber-500/5"></div>
+          
+          {/* Map Image */}
+          <div className="relative">
+            <img 
+              src="/bananamap.png" 
+              alt={t('exportDestinations.mapAlt')}
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+        </motion.div>
+
+        
       </div>
 
       {/* Bottom Border */}

@@ -3,7 +3,6 @@ import { useInView } from 'react-intersection-observer';
 import CountUp from './reactBits/CountUp';
 import Magnet from './reactBits/Magnet';
 import ShinyText from './reactBits/ShinyText';
-import Particles from './reactBits/Particles';
 import GradientText from './reactBits/GradientText';
 import { useTranslation } from 'react-i18next';
 
@@ -72,9 +71,9 @@ export default function StatsCounters() {
           </motion.div>
 
           <GradientText
-            colors={['#ffffff', '#e5e7eb', '#ffffff']}
-            animationSpeed={8}
-            className="text-5xl md:text-7xl font-light tracking-tight mb-6"
+            colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
+            animationSpeed={6}
+            className="text-4xl md:text-7xl leading-relaxed font-light tracking-tight mb-6 px-4"
           >
             {t('stats.title')}
           </GradientText>
@@ -101,12 +100,12 @@ export default function StatsCounters() {
                 delay: 0.6 + index * 0.1,
                 ease: [0.22, 1, 0.36, 1]
               }}
-              className="flex justify-center"
+              className="w-full"
             >
-              <Magnet padding={60} magnetStrength={3}>
-                <div className="group relative cursor-pointer">
+              <Magnet padding={60} magnetStrength={3} wrapperClassName="w-full block">
+                <div className="group relative cursor-pointer w-full">
                   {/* Card Container */}
-                  <div className="relative bg-slate-900/40 backdrop-blur-xl rounded-3xl p-10 border border-white/5 hover:border-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-black/50 overflow-hidden">
+                  <div className="relative bg-slate-900/40 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/5 hover:border-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-black/50 overflow-hidden h-full min-h-[400px]">
                     {/* Gradient Accent Line - Top */}
                     <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
                     
@@ -181,10 +180,10 @@ export default function StatsCounters() {
           {/* Trust Badges */}
           <div className="flex flex-wrap justify-center gap-3 pt-4">
             {[
-              { label: 'Sustainable Operations', icon: '●' },
-              { label: 'ISO Certified', icon: '●' },
-              { label: 'Global Logistics', icon: '●' },
-              { label: 'Premium Quality', icon: '●' }
+              { key: 'sustainable', icon: '●' },
+              { key: 'iso', icon: '●' },
+              { key: 'logistics', icon: '●' },
+              { key: 'quality', icon: '●' }
             ].map((badge, idx) => (
               <motion.div
                 key={idx}
@@ -195,7 +194,7 @@ export default function StatsCounters() {
               >
                 <span className="text-xs font-light text-slate-400 tracking-wider flex items-center gap-2">
                   <span className="text-emerald-400/60 text-[8px]">{badge.icon}</span>
-                  {badge.label}
+                  {t(`stats.badges.${badge.key}`)}
                 </span>
               </motion.div>
             ))}

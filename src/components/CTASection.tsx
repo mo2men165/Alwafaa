@@ -1,261 +1,87 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import GradientText from './reactBits/GradientText';
-import StarBorder from './reactBits/StarBorder';
-import ShinyText from './reactBits/ShinyText';
-import Orb from './reactBits/Orb';
-import Beams from './reactBits/Beams';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
 
-export default function CTASection() {
+export default function CtaSection() {
   const { t } = useTranslation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.15
-  });
+  const [isVisible, setIsVisible] = useState(false);
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    country: '',
-    message: ''
-  });
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-  };
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   return (
-    <section className="relative py-32 px-6 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
-      {/* Orb Background */}
-      <div className="absolute inset-0 opacity-30">
-        <Orb />
+    <section className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 py-24 px-6">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-300 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      {/* Beams Effect */}
-      <div className="absolute inset-0 opacity-20">
-        <Beams />
-      </div>
+      {/* Floating banana accents */}
+      <div className="absolute top-20 right-20 text-6xl opacity-10 animate-bounce">🍌</div>
+      <div className="absolute bottom-20 left-20 text-4xl opacity-10 animate-bounce delay-300">🍌</div>
 
-      <div className="relative z-10 max-w-7xl mx-auto" ref={ref}>
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-16"
-        >
-          <GradientText
-            colors={['#10b981', '#3b82f6', '#d4af37']}
-            animationSpeed={5}
-            className="text-5xl md:text-7xl font-black mb-6"
-          >
-            {t('cta.title')}
-          </GradientText>
-
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            {t('cta.subtitle')}
-          </p>
-        </motion.div>
-
-        {/* Split Layout */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left - Contact Form */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Field */}
-                <div>
-                  <label className="block mb-2">
-                    <ShinyText 
-                      text={t('cta.form.name')} 
-                      speed={4}
-                      className="text-sm font-semibold text-gray-300 uppercase tracking-wide"
-                    />
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/50 transition-all"
-                    placeholder={t('cta.form.namePlaceholder')}
-                    required
-                  />
-                </div>
-
-                {/* Email Field */}
-                <div>
-                  <label className="block mb-2">
-                    <ShinyText 
-                      text={t('cta.form.email')} 
-                      speed={4}
-                      className="text-sm font-semibold text-gray-300 uppercase tracking-wide"
-                    />
-                  </label>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all"
-                    placeholder={t('cta.form.emailPlaceholder')}
-                    required
-                  />
-                </div>
-
-                {/* Company & Country - Grid */}
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block mb-2">
-                      <ShinyText 
-                        text={t('cta.form.company')} 
-                        speed={4}
-                        className="text-sm font-semibold text-gray-300 uppercase tracking-wide"
-                      />
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData({...formData, company: e.target.value})}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50 transition-all"
-                      placeholder={t('cta.form.companyPlaceholder')}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block mb-2">
-                      <ShinyText 
-                        text={t('cta.form.country')} 
-                        speed={4}
-                        className="text-sm font-semibold text-gray-300 uppercase tracking-wide"
-                      />
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.country}
-                      onChange={(e) => setFormData({...formData, country: e.target.value})}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all"
-                      placeholder={t('cta.form.countryPlaceholder')}
-                    />
-                  </div>
-                </div>
-
-                {/* Message Field */}
-                <div>
-                  <label className="block mb-2">
-                    <ShinyText 
-                      text={t('cta.form.message')} 
-                      speed={4}
-                      className="text-sm font-semibold text-gray-300 uppercase tracking-wide"
-                    />
-                  </label>
-                  <textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    rows={5}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/50 transition-all resize-none"
-                    placeholder={t('cta.form.messagePlaceholder')}
-                    required
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <StarBorder
-                  as="button"
-                  type="submit"
-                  color="#10b981"
-                  speed="4s"
-                  thickness={2}
-                  className="w-full"
-                >
-                  <span className="block py-4 text-lg font-bold">
-                    {t('cta.form.submit')}
-                  </span>
-                </StarBorder>
-
-                {/* Success Message */}
-                {isSubmitted && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-center p-4 bg-green-500/20 border border-green-500 rounded-xl"
-                  >
-                    <p className="text-green-400 font-semibold">✓ {t('cta.form.success')}</p>
-                  </motion.div>
-                )}
-              </form>
-            </div>
-          </motion.div>
-
-          {/* Right - Contact Info Cards */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            {/* Email Card */}
-            <div className="relative group bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-green-500/50 transition-all duration-300 cursor-pointer">
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <span className="text-2xl">📧</span>
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white mb-2">{t('cta.contact.email')}</h4>
-                  <p className="text-gray-400">info@alwafaaa.com</p>
-                  <p className="text-gray-400">export@alwafaaa.com</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Phone Card */}
-            <div className="relative group bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-blue-500/50 transition-all duration-300 cursor-pointer">
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <span className="text-2xl">📞</span>
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white mb-2">{t('cta.contact.phone')}</h4>
-                  <p className="text-gray-400">0109 904 2527</p>
-                  <p className="text-gray-400 text-sm">{t('cta.contact.phoneHours')}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Location Card */}
-            <div className="relative group bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-amber-500/50 transition-all duration-300 cursor-pointer">
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <span className="text-2xl">📍</span>
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white mb-2">{t('cta.contact.location')}</h4>
-                  <p className="text-gray-400">Cairo, Egypt</p>
-                  <p className="text-gray-400 text-sm">{t('cta.contact.locationNote')}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Response Time Badge */}
-            <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl p-1">
-              <div className="bg-slate-900 rounded-xl p-6 text-center">
-                <div className="text-4xl font-black text-white mb-2">
-                  <span className="text-transparent bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text">24h</span>
-                </div>
-                <p className="text-gray-300 font-semibold">{t('cta.contact.responseTime')}</p>
-              </div>
-            </div>
-          </motion.div>
+      <div className={`relative max-w-4xl mx-auto text-center transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        {/* Premium badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gradient-to-r from-yellow-600 to-amber-600 text-white rounded-full text-sm font-semibold shadow-lg">
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          {t('ctaSection.badge')}
         </div>
+
+        {/* Main headline */}
+        <h2 className="text-4xl md:text-6xl leading-relaxed font-bold mb-6 bg-gradient-to-r from-yellow-800 via-amber-700 to-yellow-900 bg-clip-text text-transparent px-4">
+          {t('ctaSection.mainHeading')}<br />{t('ctaSection.mainHeadingLine2')}
+        </h2>
+
+        {/* Subheadline */}
+        <p className="text-xl md:text-2xl text-amber-900 mb-8 max-w-2xl mx-auto leading-relaxed">
+          {t('ctaSection.subheading')}
+        </p>
+
+        {/* Stats */}
+        <div className="flex flex-wrap justify-center gap-8 mb-10 text-amber-800">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
+            <span className="font-semibold">{t('ctaSection.stats.countries')}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
+            <span className="font-semibold">{t('ctaSection.stats.quality')}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
+            <span className="font-semibold">{t('ctaSection.stats.support')}</span>
+          </div>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link to="/contact" className="group relative px-8 py-4 bg-gradient-to-r from-yellow-600 to-amber-600 text-white rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+            <span className="relative z-10 flex items-center gap-2">
+              {t('ctaSection.buttons.getQuote')}
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </Link>
+
+          <Link to="/products" className="px-8 py-4 bg-white text-amber-800 border-2 border-amber-600 rounded-lg font-semibold text-lg shadow-lg hover:bg-amber-50 transform hover:-translate-y-1 transition-all duration-300">
+            {t('ctaSection.buttons.viewCatalog')}
+          </Link>
+        </div>
+
+        {/* Trust indicator */}
+        <p className="mt-8 text-sm text-amber-700 flex items-center justify-center gap-2">
+          <svg className="w-5 h-5 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+          </svg>
+          {t('ctaSection.trustText')}
+        </p>
       </div>
     </section>
   );

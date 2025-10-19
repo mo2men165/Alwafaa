@@ -17,42 +17,80 @@ export default function Certifications() {
       name: t('certifications.certs.iso9001.name'),
       category: t('certifications.certs.iso9001.category'),
       description: t('certifications.certs.iso9001.description'),
-      gradient: 'from-emerald-500 to-teal-600'
+      gradient: 'from-blue-500 to-blue-700',
+      image: '/ISO_9001-2015.png'
     },
     {
       id: 2,
-      name: t('certifications.certs.iso22000.name'),
-      category: t('certifications.certs.iso22000.category'),
-      description: t('certifications.certs.iso22000.description'),
-      gradient: 'from-blue-500 to-indigo-600'
+      name: t('certifications.certs.eos.name'),
+      category: t('certifications.certs.eos.category'),
+      description: t('certifications.certs.eos.description'),
+      gradient: 'from-amber-500 to-yellow-600',
+      image: '/eos.png'
     },
     {
       id: 3,
-      name: t('certifications.certs.haccp.name'),
-      category: t('certifications.certs.haccp.category'),
-      description: t('certifications.certs.haccp.description'),
-      gradient: 'from-violet-500 to-purple-600'
+      name: t('certifications.certs.iso22000.name'),
+      category: t('certifications.certs.iso22000.category'),
+      description: t('certifications.certs.iso22000.description'),
+      gradient: 'from-blue-500 to-cyan-600',
+      image: '/iso22000.png'
     },
     {
       id: 4,
-      name: t('certifications.certs.globalGap.name'),
-      category: t('certifications.certs.globalGap.category'),
-      description: t('certifications.certs.globalGap.description'),
-      gradient: 'from-amber-500 to-orange-600'
+      name: t('certifications.certs.nfsa.name'),
+      category: t('certifications.certs.nfsa.category'),
+      description: t('certifications.certs.nfsa.description'),
+      gradient: 'from-red-600 to-slate-800',
+      image: '/nfsa.png'
     },
     {
       id: 5,
-      name: t('certifications.certs.organic.name'),
-      category: t('certifications.certs.organic.category'),
-      description: t('certifications.certs.organic.description'),
-      gradient: 'from-green-500 to-emerald-600'
+      name: t('certifications.certs.haccp.name'),
+      category: t('certifications.certs.haccp.category'),
+      description: t('certifications.certs.haccp.description'),
+      gradient: 'from-green-500 to-emerald-700',
+      image: '/haccp.png'
     },
     {
       id: 6,
+      name: t('certifications.certs.arc.name'),
+      category: t('certifications.certs.arc.category'),
+      description: t('certifications.certs.arc.description'),
+      gradient: 'from-green-600 to-lime-700',
+      image: '/arc.png'
+    },
+    {
+      id: 7,
+      name: t('certifications.certs.globalGap.name'),
+      category: t('certifications.certs.globalGap.category'),
+      description: t('certifications.certs.globalGap.description'),
+      gradient: 'from-emerald-500 to-blue-600',
+      image: '/globalgap.png'
+    },
+    {
+      id: 8,
+      name: t('certifications.certs.goeic.name'),
+      category: t('certifications.certs.goeic.category'),
+      description: t('certifications.certs.goeic.description'),
+      gradient: 'from-red-600 to-amber-600',
+      image: '/goeic.png'
+    },
+    {
+      id: 9,
+      name: t('certifications.certs.organic.name'),
+      category: t('certifications.certs.organic.category'),
+      description: t('certifications.certs.organic.description'),
+      gradient: 'from-lime-500 to-green-600',
+      image: '/OEFFA_Certification_Stickers.png'
+    },
+    {
+      id: 10,
       name: t('certifications.certs.fairTrade.name'),
       category: t('certifications.certs.fairTrade.category'),
       description: t('certifications.certs.fairTrade.description'),
-      gradient: 'from-rose-500 to-pink-600'
+      gradient: 'from-blue-600 to-slate-800',
+      image: '/fairtrade.webp'
     }
   ];
 
@@ -89,7 +127,7 @@ export default function Certifications() {
           <GradientText
             colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
             animationSpeed={6}
-            className="text-5xl leading-relaxed md:text-7xl font-light tracking-tight mb-8"
+            className="text-4xl leading-relaxed md:text-7xl font-light tracking-tight mb-8 px-4"
           >
             {t('certifications.title')}
           </GradientText>
@@ -105,16 +143,17 @@ export default function Certifications() {
         </motion.div>
 
         {/* Certifications Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.id}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.6 + index * 0.1 }}
+              className="w-full"
             >
-              <Magnet padding={50} magnetStrength={2}>
-                <div className="relative h-full bg-slate-900/40 backdrop-blur-xl rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-500 overflow-hidden group">
+              <Magnet padding={50} magnetStrength={2} wrapperClassName="w-full block">
+                <div className="relative h-full bg-slate-900/40 backdrop-blur-xl rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-500 overflow-hidden group w-full">
                   {/* Top Accent Line */}
                   <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r ${cert.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
@@ -123,19 +162,21 @@ export default function Certifications() {
 
                   {/* Content */}
                   <div className="relative space-y-4">
-                    {/* Logo Placeholder */}
-                    <div className="w-full aspect-video bg-white/5 rounded-xl flex items-center justify-center border border-white/5">
-                      <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${cert.gradient} opacity-20 flex items-center justify-center`}>
-                        <span className="text-3xl text-white/40">✓</span>
-                      </div>
+                    {/* Certification Logo */}
+                    <div className="w-full aspect-video bg-white/5 rounded-xl flex items-center justify-center border border-white/5 p-4 overflow-hidden">
+                      <img 
+                        src={cert.image} 
+                        alt={cert.name}
+                        className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
 
                     {/* Category Badge */}
-                    <div className={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${cert.gradient} bg-opacity-10`}>
+                    {/* <div className={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${cert.gradient} bg-opacity-10`}>
                       <span className={`text-xs font-medium bg-gradient-to-r ${cert.gradient} bg-clip-text text-transparent uppercase tracking-wide`}>
                         {cert.category}
                       </span>
-                    </div>
+                    </div> */}
 
                     {/* Name */}
                     <h3 className="text-xl font-light text-white">

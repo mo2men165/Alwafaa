@@ -96,7 +96,7 @@ export default function BananaProducts() {
           <GradientText
             colors={['#10b981', '#3b82f6', '#d4af37', '#10b981']}
             animationSpeed={6}
-            className="text-5xl leading-relaxed md:text-7xl font-light tracking-tight mb-8"
+            className="text-4xl leading-relaxed md:text-7xl font-light tracking-tight mb-8 px-4"
           >
             {t('bananaProducts.title')}
           </GradientText>
@@ -119,9 +119,10 @@ export default function BananaProducts() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.6 + index * 0.15 }}
+              className="w-full"
             >
-              <Magnet padding={80} magnetStrength={3}>
-                <div className="group relative h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 border border-slate-200 hover:border-slate-300">
+              <Magnet padding={80} magnetStrength={3} wrapperClassName="w-full block">
+                <div className="group relative h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 border border-slate-200 hover:border-slate-300 w-full">
                   {/* Image Container */}
                   <div className="relative h-72 overflow-hidden bg-slate-50">
                     <img 
